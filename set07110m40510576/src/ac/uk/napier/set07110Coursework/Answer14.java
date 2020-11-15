@@ -31,19 +31,19 @@ public class Answer14 {
 		 * Add your code below
 		 */
 		
-		Postcode postcode;
-		double distance = 0;
-		String postcodename = null;
-		ArrayList<String> postcodesRow = new ArrayList<>(); //7223
+		Postcode finalPostcode = null;
+		double distance1 = 0;
+		double distance2 = 0;
+		Postcode postcode = null;
 		ArrayList<Postcode> postcodes = new ArrayList<>();
 		
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(new File("data/fy.csv")));
 			String line;
 			while ((line = reader.readLine()) != null) {
-				//String[] data = line.split(",");
-				//postcode = new Postcode(Double.parseDouble(data[1]), Double.parseDouble(data[2]));
-				postcodesRow.add(line);
+				String[] data = line.split(",");
+				postcode = new Postcode(data[0], Double.parseDouble(data[1]), Double.parseDouble(data[2]));
+				postcodes.add(postcode);
 			}
 			reader.close();
 
@@ -55,13 +55,34 @@ public class Answer14 {
 			e.printStackTrace();
 		}
 		
+		//fin qui funziona		
+		
+		
+		for (Postcode j : postcodes) {
+			distance1 = 1000000;
+			for (Postcode n : postcodes) {
+				if (j != n) {
+					if (WeatherData.getDistanceBetweenPoints(j.getLat(), j.getLon(), n.getLat(), n.getLon()) < distance1) {
+						distance1 = WeatherData.getDistanceBetweenPoints(j.getLat(), j.getLon(), n.getLat(), n.getLon());
+					}
+				}
+			}
+			if (distance1 > distance2) {
+				distance2 = distance1;
+				finalPostcode = j;
+			}
+		}
+		
+		System.out.println(distance2 + " " + finalPostcode);
+		MapGui.showMap(finalPostcode);
+		/*
 		for (String i : postcodesRow) {
 			String[] data = i.split(",");
 			postcode = new Postcode(Double.parseDouble(data[1]), Double.parseDouble(data[2]));
 			postcodes.add(postcode);
 		}
 		//fin qui funziona
-		
+		/*
 		double distancePointToPoint = 0;
 //		Coordinate c1 = null;
 //		Coordinate c2 = null;
@@ -119,7 +140,7 @@ public class Answer14 {
 		
 		
 		/*
-		 * 
+		 * ---------------------------
 		 * 
 		
 		orderList(postcodes);

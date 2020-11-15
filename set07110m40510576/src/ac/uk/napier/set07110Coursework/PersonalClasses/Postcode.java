@@ -48,6 +48,7 @@ public class Postcode extends Coordinate {
 
 	@Override
 	public String toString() {
-		return code + "," + getLat() + "," + getLon();
+		return "Postcode [code=" + code + " latitude=" +  getLat() + " longitude=" +  getLon() + "]";
 	}
+
 }

@@ -54,7 +54,7 @@ public class Answer11 {
 				String[] data = line.split(",");
 				// System.out.println("There are BIOBOIA Post Codes");
 				if (WeatherData.getDistanceBetweenPoints(coordinates.getLat(), coordinates.getLon(),
-						Double.parseDouble(data[1]), Double.parseDouble(data[2])) < 5) {
+						Double.parseDouble(data[1]), Double.parseDouble(data[2])) <= 5) {
 					count++;
 					// System.out.println("DIOCAN");
 					coordinates2 = new Postcode(Double.parseDouble(data[1]), Double.parseDouble(data[2]));
