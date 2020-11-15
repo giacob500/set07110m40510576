@@ -16,18 +16,18 @@ public class Postcode extends Coordinate {
 		super(lat, lon);
 		try {
 			// We use a Buffered Reader to read the file line by line
-			BufferedReader reader = new BufferedReader(new FileReader(new File("data/postcodes.csv")));
+			BufferedReader reader = new BufferedReader(new FileReader(new File("data/fy.csv")));
 
 			String line;
-			// continue reading until null is returned when the end of the file has been
-			// reached
 			while ((line = reader.readLine()) != null) {
-				String[] data = line.split(",");				
-				if (data[1].equals(lat) && data[1].equals(lon)) {
+				String[] data = line.split(",");
+				if (Double.parseDouble(data[1]) == lat && Double.parseDouble(data[2]) == lon) {
 					code = data[0];
 				}
 			}
+
 			reader.close();
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -37,12 +37,17 @@ public class Postcode extends Coordinate {
 		}
 	}
 
+	public Postcode(String code, double lat, double lon) {
+		super(lat, lon);
+		this.code = code;
+	}
+
 	public String getCode() {
 		return code;
 	}
 
 	@Override
 	public String toString() {
-		return code +  "," + getLat() +  "," + getLon();
+		return code + "," + getLat() + "," + getLon();
 	}
 }

@@ -43,6 +43,5 @@ public class Answer13 {
 		System.out.println(
 				"The difference in mean temperature during March between LOSSIEMOUTH (3068) and EDINBURGH/GOGARBANK (3166) is "
 						+ Math.abs((loss / lossCount) - (edgo / edgoCount)));
-		
 	}
 }
