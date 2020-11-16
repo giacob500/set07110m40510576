@@ -45,6 +45,16 @@ public class WeatherStation extends Coordinate {
 		}
 		return windSpeed;
 	}
+	
+	public  ArrayList<Double> getWeatherReadingsTemperatureInMarch(){
+		ArrayList<Double> temperature = new ArrayList<>();
+		for (WeatherReading i : weatherReadings) {
+			if (i.getMonth() == 3) {
+				temperature.add(i.getTemperature());
+			}
+		}
+		return temperature;
+	}
 
 	@Override
 	public String toString() {

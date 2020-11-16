@@ -25,7 +25,6 @@ public class Postcode extends Coordinate {
 					code = data[0];
 				}
 			}
-
 			reader.close();
 
 		} catch (FileNotFoundException e) {
