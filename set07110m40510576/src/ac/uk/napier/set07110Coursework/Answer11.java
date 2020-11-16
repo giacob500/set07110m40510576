@@ -74,7 +74,6 @@ public class Answer11 {
 
 		//use the method ShowMap which takes the list of coordinates as a parameter and shows them on a map
 		MapGui.showMap(coordinatesList);
-		JOptionPane.showMessageDialog(null, "Clicking on the map will save a screenshot using the current system time as the filename");
 		/*
 		int count = 0;
 		Coordinate coordinates = null;

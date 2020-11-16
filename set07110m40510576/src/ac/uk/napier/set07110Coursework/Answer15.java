@@ -59,9 +59,7 @@ public class Answer15 {
 			for (Postcode e : postcodes) {
 				if (p != e) {
 					if (WeatherData.getDistanceBetweenPoints(p.getLat(), p.getLon(), e.getLat(), e.getLon()) <= 0.2) {
-						count1++;
-						// System.out.println("DIOCAN");
-						
+						count1++;						
 					}
 				}
 				
@@ -76,6 +74,5 @@ public class Answer15 {
 		System.out.println(gothim.toString() + " " + count2);
 		postcodesOnMap.add(gothim);
 		MapGui.showMap(postcodesOnMap);
-
 	}
 }
