@@ -1,6 +1,7 @@
 package ac.uk.napier.set07110Coursework;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.swing.JOptionPane;
 
@@ -28,31 +29,86 @@ public class Answer12 {
 		 * Add your code below
 		 */
 		
-		/*
-		String location = "";
-		WeatherStation weatherStation = null;
-		ArrayList<String> weatherStationReadings = new ArrayList<>();
-		ArrayList<ArrayList> weatherStationsReadings = new ArrayList<>();
+		//WeatherStation ws = null;
+		ArrayList<WeatherStation> weatherStations = new ArrayList<>();
+		ArrayList<String[]> weatherDataList = new ArrayList<>();
+		int windSpeedCount = 0;
+		int consecutiveReadings = 0;
+		String wsId = null;
+		int count = 0;
+		int oldCount = 0;
+		boolean countConsecutive = false;
+		String locationName = null;
+		WeatherStation weatherStation = null;;
 		
 		String[] weatherData = WeatherData.getData();
 		for (int i = 1; i < weatherData.length; i++) {
 			String[] data = weatherData[i].split(",");
-			System.out.println(data[0]);
-			//System.out.println(location + " " + data[0]);
-			while (data[0].equals(location) == true) {
-				//System.out.print(j + " ");
-				//System.out.println("");
-				weatherStationReadings.add(data[8]);
-			}
-			weatherStationsReadings.add(weatherStationReadings);
-			location = data[0];
+			weatherDataList.add(data);
 		}
-		System.out.println(weatherStationReadings);
 		
+		System.out.println(weatherDataList.get(0)[0] + " " + (int)Double.parseDouble(weatherDataList.get(0)[8]));
 		
+		for (String[] wr : weatherDataList) {
+			
+				if (Integer.parseInt(wr[8]) > 50 && countConsecutive == false) {
+					count++;
+					countConsecutive = true;
+				} else if (Integer.parseInt(wr[8]) > 50 && countConsecutive == true) {
+					
+					count++;
+					if (count > oldCount) {
+						oldCount = count;
+						locationName = wr[1];
+						weatherStation = new WeatherStation(Double.parseDouble(wr[2]), Double.parseDouble(wr[3]));
+					}
+				} else {
+					count = 0;
+					countConsecutive = false;
+				}
+		}		
+		
+		System.out.println(oldCount + " " + weatherStation.toString());
+		
+		MapGui.showMap(weatherStation);
+		
+		/*
+		for (String[] o : weatherDataList) {			
+			if (Integer.parseInt(o[8]) > 50) {
+				while (o[0] != null && o[0].equals(wsId)) {
+					windSpeedCount++;
+				}
+				if (!(o[0].equals(wsId))) {
+					windSpeedCount = 0;
+				}
+			}
+			if (windSpeedCount > consecutiveReadings) {
+				consecutiveReadings = windSpeedCount;
+				ws = new WeatherStation(Double.parseDouble(o[2]), Double.parseDouble(o[3]));
+				wsList.add(ws);
+			}
+			wsId = o[0];			
+		}
+		
+		System.out.println(wsList + " " + consecutiveReadings);
+		
+		------------------
 		String[] weatherData = WeatherData.getData();
-		for (int i = 1; i < weatherData.length; i++)
-			System.out.println(weatherData[i]);
+		for (int i = 1; i < weatherData.length; i++) {
+			String[] data = weatherData[i].split(",");
+			
+			if (Integer.parseInt(data[8]) > 50) {
+				if (data[0] != null && data[0].equals(wsId)) {					
+					windSpeedCount++;
+				}				
+			}
+			if (windSpeedCount > consecutiveReadings) {
+				consecutiveReadings = windSpeedCount;
+				ws = new WeatherStation(Double.parseDouble(data[2]), Double.parseDouble(data[3]));
+				wsList.add(ws);
+			}
+			wsId = data[0];
+		}
 		*/
 		
 		
@@ -68,6 +124,13 @@ public class Answer12 {
 		
 		
 		
+		
+		
+		
+		/*
+		String[] weatherData = WeatherData.getData();
+		for (int i = 1; i < weatherData.length; i++)
+			System.out.println(weatherData[i]);		
 		
 		ArrayList<ArrayList> weatherStationsReadings = new ArrayList<>();
 		ArrayList<Integer> weatherStationsNames = new ArrayList<>();
@@ -91,7 +154,7 @@ public class Answer12 {
 		}
 
 		System.out.println(weatherStationsReadings);
-		
+		*/
 //		-----------------------------------------
 		/*
 		
@@ -134,5 +197,5 @@ public class Answer12 {
 //		JOptionPane.showMessageDialog(null,
 //				"Clicking on the map will save a screenshot using the current system time as the filename");
 */
-	}
+	} 
 }

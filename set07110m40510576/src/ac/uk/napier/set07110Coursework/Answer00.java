@@ -32,7 +32,7 @@ public class Answer00 {
 		System.out.println(weatherData[0]);
 
 		// print out record 100 (index 100)
-		System.out.println(weatherData[100]);
+		System.out.println(weatherData[1]);
 
 		// split a line of data to its individual fields (these are still
 		// strings and will need parsed to the correct data type specified in
