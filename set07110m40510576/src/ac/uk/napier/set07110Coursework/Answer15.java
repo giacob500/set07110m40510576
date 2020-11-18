@@ -71,7 +71,7 @@ public class Answer15 {
 			count1 = 0;
 		}
 		
-		System.out.println(gothim.toString() + " " + count2);
+		System.out.println("The most densely populated FY postcode is " + gothim.getCode() + " with " + count2 + " inhabitants");
 		postcodesOnMap.add(gothim);
 		MapGui.showMap(postcodesOnMap);
 	}

@@ -73,7 +73,7 @@ public class Answer14 {
 			}
 		}
 		
-		System.out.println(distance2 + " " + finalPostcode);
+		System.out.println("The most isolated FY postcode is " + finalPostcode.getCode() + " with a distance from the closest of " + distance2);
 		MapGui.showMap(finalPostcode);
 		/*
 		for (String i : postcodesRow) {

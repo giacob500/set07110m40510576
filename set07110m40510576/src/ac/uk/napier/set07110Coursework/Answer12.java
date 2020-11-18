@@ -60,7 +60,7 @@ public class Answer12 {
 			}				
 		}		
 		
-		System.out.println(oldCount + " " + founded.toString());
+		System.out.println(founded.getSiteName() + " susteined a wind speed of greater than 50 Km/h for " + oldCount + " consecutive readings");
 		MapGui.showMap(founded);
 		
 		/*
