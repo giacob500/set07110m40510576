@@ -1,6 +1,5 @@
 package ac.uk.napier.set07110Coursework;
 
-import ac.uk.napier.set07110Coursework.PersonalClasses.WeatherStation;
 import weather.WeatherData;
 
 /**
@@ -32,7 +31,7 @@ public class Answer00 {
 		System.out.println(weatherData[0]);
 
 		// print out record 100 (index 100)
-		System.out.println(weatherData[1]);
+		System.out.println(weatherData[100]);
 
 		// split a line of data to its individual fields (these are still
 		// strings and will need parsed to the correct data type specified in
@@ -41,22 +40,8 @@ public class Answer00 {
 
 		// print each element of the array
 		for (String element : data) {
-			//System.out.println(element);
+			System.out.println(element);
 		}
-		
-		for (int i = 0; i<100; i++) {
-			//System.out.println(weatherData[i]);
-		}
-		
-		WeatherStation bo = new WeatherStation(56.88, -3.42);
-		System.out.println(bo.getWeatherReadings().get(10));
-		
-		int a = 1;
-		int b = 2;
-		int c = 3;
-		
-		if (a == 1 && b == 1 || b == 2) {
-			System.out.println(a);
-		}
+
 	}
 }

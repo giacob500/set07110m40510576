@@ -15,9 +15,7 @@ public class Postcode extends Coordinate {
 	public Postcode(double lat, double lon) {
 		super(lat, lon);
 		try {
-			// We use a Buffered Reader to read the file line by line
 			BufferedReader reader = new BufferedReader(new FileReader(new File("data/fy.csv")));
-
 			String line;
 			while ((line = reader.readLine()) != null) {
 				String[] data = line.split(",");
@@ -26,7 +24,6 @@ public class Postcode extends Coordinate {
 				}
 			}
 			reader.close();
-
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

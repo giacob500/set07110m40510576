@@ -22,12 +22,12 @@ public class Answer12 {
 		 * Add your code below
 		 */
 		
-		ArrayList<WeatherStation> weatherStations = new ArrayList<>();
 		int count = 0;
 		int oldCount = 0;
-		boolean countConsecutive = false;
+		boolean consecutiveRead = false;
 		WeatherStation weatherStation = null;
-		WeatherStation founded = null;
+		WeatherStation finalWeatherStation = null;
+		ArrayList<WeatherStation> weatherStations = new ArrayList<>();
 		
 		String[] weatherData = WeatherData.getData();
 		for (int i = 1; i < weatherData.length; i++) {
@@ -43,62 +43,24 @@ public class Answer12 {
 		
 		for (WeatherStation wr : weatherStations) {		
 			for (int reading : wr.getWeatherReadingsWindSpeed()) {
-				if (reading > 50 && countConsecutive == false) {
+				if (reading > 50 && consecutiveRead == false) {
 					count++;
-					countConsecutive = true;
-				} else if (reading > 50 && countConsecutive == true) {
+					consecutiveRead = true;
+				} else if (reading > 50 && consecutiveRead == true) {
 					
 					count++;
 					if (count > oldCount) {
 						oldCount = count;
-						founded = wr;
+						finalWeatherStation = wr;
 					}
 				} else {
 					count = 0;
-					countConsecutive = false;
+					consecutiveRead = false;
 				}
 			}				
 		}		
 		
-		System.out.println(founded.getSiteName() + " susteined a wind speed of greater than 50 Km/h for " + oldCount + " consecutive readings");
-		MapGui.showMap(founded);
-		
-		/*
-		ArrayList<String[]> weatherDataList = new ArrayList<>();
-		int count = 0;
-		int oldCount = 0;
-		boolean countConsecutive = false;
-		String locationName = null;
-		WeatherStation weatherStation = null;
-		
-		String[] weatherData = WeatherData.getData();
-		for (int i = 1; i < weatherData.length; i++) {
-			String[] data = weatherData[i].split(",");
-			weatherDataList.add(data);
-		}
-
-		for (String[] wr : weatherDataList) {
-
-				if (Integer.parseInt(wr[8]) > 50 && countConsecutive == false) {
-					count++;
-					countConsecutive = true;
-				} else if (Integer.parseInt(wr[8]) > 50 && countConsecutive == true) {
-
-					count++;
-					if (count > oldCount) {
-						oldCount = count;
-						locationName = wr[1];
-						weatherStation = new WeatherStation(Double.parseDouble(wr[2]), Double.parseDouble(wr[3]));
-					}
-				} else {
-					count = 0;
-					countConsecutive = false;
-				}
-		}		
-
-		System.out.println(oldCount + " " + weatherStation.toString());
-		//MapGui.showMap(weatherStation);
-		
-		*/
+		System.out.println(finalWeatherStation.getSiteName() + " susteined a wind speed of greater than 50 Km/h for " + oldCount + " consecutive readings");
+		MapGui.showMap(finalWeatherStation);
 	} 
 }

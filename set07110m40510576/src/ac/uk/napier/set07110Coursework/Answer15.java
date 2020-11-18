@@ -29,13 +29,13 @@ public class Answer15 {
 		/*
 		 * Add your code below
 		 */
-
+		
+		int postcodesCount = 0;
+		int highestPostcodesCount = 0;
 		Postcode postcode;
+		Postcode finalPostcode = null;
 		ArrayList<Postcode> postcodes = new ArrayList<>();
 		ArrayList<Coordinate> postcodesOnMap = new ArrayList<>();
-		int count1 = 0;
-		int count2 = 0;
-		Postcode gothim = null;
 
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(new File("data/fy.csv")));
@@ -59,20 +59,20 @@ public class Answer15 {
 			for (Postcode e : postcodes) {
 				if (p != e) {
 					if (WeatherData.getDistanceBetweenPoints(p.getLat(), p.getLon(), e.getLat(), e.getLon()) <= 0.2) {
-						count1++;						
+						postcodesCount++;						
 					}
 				}
 				
 			}
-			if (count1 > count2) {
-				count2 = count1;
-				gothim = p;
+			if (postcodesCount > highestPostcodesCount) {
+				highestPostcodesCount = postcodesCount;
+				finalPostcode = p;
 			}
-			count1 = 0;
+			postcodesCount = 0;
 		}
 		
-		System.out.println("The most densely populated FY postcode is " + gothim.getCode() + " with " + count2 + " inhabitants");
-		postcodesOnMap.add(gothim);
+		System.out.println("The most densely populated FY postcode is " + finalPostcode.getCode() + " with " + highestPostcodesCount + " inhabitants");
+		postcodesOnMap.add(finalPostcode);
 		MapGui.showMap(postcodesOnMap);
 	}
 }

@@ -3,8 +3,6 @@ package ac.uk.napier.set07110Coursework;
 import java.util.ArrayList;
 
 import org.openstreetmap.gui.jmapviewer.Coordinate;
-
-import ac.uk.napier.set07110Coursework.PersonalClasses.Postcode;
 import ac.uk.napier.set07110Coursework.PersonalClasses.WeatherStation;
 import gui.MapGui;
 import weather.WeatherData;
@@ -26,63 +24,40 @@ public class Answer13 {
 		 * Add your code below
 		 */
 		
-		double loss = 0;
+		double lossSum = 0;
 		int lossCount = 0;
-		double edgo = 0;
-		int edgoCount = 0;
-		WeatherStation edgoOnMap = null;
-		WeatherStation lossOnMap = null;
+		double edGoSum = 0;
+		int edGoCount = 0;
+		WeatherStation edGo = null;
+		WeatherStation loss = null;
 		ArrayList<Coordinate> coordinates = new ArrayList<>();
 
 		String[] weatherData = WeatherData.getData();
 		for (int i = 1; i < weatherData.length; i++) {
 			String[] data = weatherData[i].split(",");
 			if (Integer.parseInt(data[5]) == 3) {
-				if (data[1].equals("EDINBURGH/GOGARBANK (3166)") && edgoOnMap == null) {
-					edgoOnMap = new WeatherStation(Double.parseDouble(data[2]), Double.parseDouble(data[3]));
-				} else if (data[1].equals("LOSSIEMOUTH (3068)") && lossOnMap == null) {
-					lossOnMap = new WeatherStation(Double.parseDouble(data[2]), Double.parseDouble(data[3]));
+				if (data[1].equals("EDINBURGH/GOGARBANK (3166)") && edGo == null) {
+					edGo = new WeatherStation(Double.parseDouble(data[2]), Double.parseDouble(data[3]));
+				} else if (data[1].equals("LOSSIEMOUTH (3068)") && loss == null) {
+					loss = new WeatherStation(Double.parseDouble(data[2]), Double.parseDouble(data[3]));
 				}
 			}
 		}
 		
-		for (double d : edgoOnMap.getWeatherReadingsTemperatureInMarch()) {
-			edgo += d;
+		for (double d : edGo.getWeatherReadingsTemperatureInMarch()) {
+			edGoSum += d;
 		}
-		edgoCount = edgoOnMap.getWeatherReadingsTemperatureInMarch().size();
-		for (double p : lossOnMap.getWeatherReadingsTemperatureInMarch()) {
-			loss += p;
+		edGoCount = edGo.getWeatherReadingsTemperatureInMarch().size();
+		for (double p : loss.getWeatherReadingsTemperatureInMarch()) {
+			lossSum += p;
 		}
-		lossCount = lossOnMap.getWeatherReadingsTemperatureInMarch().size();
+		lossCount = loss.getWeatherReadingsTemperatureInMarch().size();
 		
-		coordinates.add(edgoOnMap);
-		coordinates.add(lossOnMap);
+		coordinates.add(edGo);
+		coordinates.add(loss);
 		System.out.println(
 				"The difference in mean temperature during March between LOSSIEMOUTH (3068) and EDINBURGH/GOGARBANK (3166) is "
-						+ Math.abs((loss / lossCount) - (edgo / edgoCount)));
+						+ Math.abs((lossSum / lossCount) - (edGoSum / edGoCount)));
 		MapGui.showMap(coordinates);
-		/*
-		double loss = 0;
-		int lossCount = 0;
-		double edgo = 0;
-		int edgoCount = 0;
-
-		String[] weatherData = WeatherData.getData();
-		for (int i = 1; i < weatherData.length; i++) {
-			String[] data = weatherData[i].split(",");
-			if (Integer.parseInt(data[5]) == 3) {
-				if (data[1].equals("EDINBURGH/GOGARBANK (3166)")) {
-					edgo += Double.parseDouble(data[data.length - 1]);
-					edgoCount++;
-				} else if (data[1].equals("LOSSIEMOUTH (3068)")) {
-					loss += Double.parseDouble(data[data.length - 1]);
-					lossCount++;
-				}
-			}
-		}
-		System.out.println(
-				"The difference in mean temperature during March between LOSSIEMOUTH (3068) and EDINBURGH/GOGARBANK (3166) is "
-						+ Math.abs((loss / lossCount) - (edgo / edgoCount)));*/
-	}
-	
+	}	
 }
