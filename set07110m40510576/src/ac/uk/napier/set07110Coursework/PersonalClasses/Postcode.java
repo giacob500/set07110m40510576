@@ -53,6 +53,7 @@ public class Postcode extends Coordinate {
 
 	/**
 	 * Returns the postcode id (named as code)
+	 * 
 	 * @return code
 	 */
 	public String getCode() {

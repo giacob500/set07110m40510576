@@ -36,6 +36,7 @@ public class WeatherStation extends Coordinate {
 
 	/**
 	 * Gets the site id.
+	 * 
 	 * @return the siteId
 	 */
 	public int getSiteId() {
@@ -44,6 +45,7 @@ public class WeatherStation extends Coordinate {
 
 	/**
 	 * Gets the site name.
+	 * 
 	 * @return the SiteName
 	 */
 	public String getSiteName() {
@@ -52,6 +54,7 @@ public class WeatherStation extends Coordinate {
 
 	/**
 	 * Gets all the weather readings.
+	 * 
 	 * @return the weatherReadings
 	 */
 	public ArrayList<WeatherReading> getWeatherReadings() {
@@ -60,6 +63,7 @@ public class WeatherStation extends Coordinate {
 	
 	/**
 	 * Gets all the wind speeds observed from the weather readings.
+	 * 
 	 * @return the windSpeed
 	 */
 	public  ArrayList<Integer> getWeatherReadingsWindSpeed(){
@@ -72,6 +76,7 @@ public class WeatherStation extends Coordinate {
 	
 	/**
 	 * Gets all the temperatures observed from the weather readings in march.
+	 * 
 	 * @return the windSpeed
 	 */
 	public  ArrayList<Double> getWeatherReadingsTemperatureInMarch(){

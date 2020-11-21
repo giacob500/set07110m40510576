@@ -29,28 +29,31 @@ public class Answer11 {
 		 * Add your code below
 		 */
 
-		int count = 0;
 		WeatherStation weatherStation = null;
 		Postcode postcode = null;
 		ArrayList<Coordinate> coordinates = new ArrayList<>();
 
+		// Get the data and split them in arrays
 		String[] weatherData = WeatherData.getData();
 		for (int i = 1; i < weatherData.length; i++) {
 			String[] data = weatherData[i].split(",");
+			// When the correct string is found, create an object with it's properties
 			if (data[1].equals("INVERBERVIE (3088)")) {
 				weatherStation = new WeatherStation(Double.parseDouble(data[2]), Double.parseDouble(data[3]));
 				break;
 			}
 		}
-		
+
+		// Read the postcodes.csv file and split each line in an array
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(new File("data/postcodes.csv")));
 			String line;
 			while ((line = reader.readLine()) != null) {
 				String[] data = line.split(",");
+				// If the distance between INVERBERVIE and the other postcode is within a 5 km
+				// radius, create the new postcode object, add it into the coordinates list
 				if (WeatherData.getDistanceBetweenPoints(weatherStation.getLat(), weatherStation.getLon(),
 						Double.parseDouble(data[1]), Double.parseDouble(data[2])) <= 5) {
-					count++;
 					postcode = new Postcode(Double.parseDouble(data[1]), Double.parseDouble(data[2]));
 					coordinates.add(postcode);
 				}
@@ -64,9 +67,10 @@ public class Answer11 {
 			e.printStackTrace();
 		}
 
-		System.out.println("There are " + count + " Post Codes");
+		System.out.println("There are " + coordinates.size() + " Post Codes");
 
-		//use the method ShowMap which takes the list of coordinates as a parameter and shows them on a map
-		MapGui.showMap(coordinates);
+		// Use the method ShowMap which takes the list of coordinates as a parameter and
+		// shows them on a map
+		//MapGui.showMap(coordinates);
 	}
 }

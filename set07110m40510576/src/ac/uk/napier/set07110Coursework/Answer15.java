@@ -6,9 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import org.openstreetmap.gui.jmapviewer.Coordinate;
-
 import ac.uk.napier.set07110Coursework.PersonalClasses.Postcode;
 import gui.MapGui;
 import weather.WeatherData;
@@ -35,8 +32,8 @@ public class Answer15 {
 		Postcode postcode;
 		Postcode finalPostcode = null;
 		ArrayList<Postcode> postcodes = new ArrayList<>();
-		ArrayList<Coordinate> postcodesOnMap = new ArrayList<>();
 
+		// Read the fy.csv file and split each line in a array, for each create a postcode object and add it to the list
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(new File("data/fy.csv")));
 			String line;
@@ -55,6 +52,7 @@ public class Answer15 {
 			e.printStackTrace();
 		}
 
+		// For each postcode check distance from every other postcodes and if it is within a 0.2 km radius, increase the counter
 		for (Postcode p : postcodes) {
 			for (Postcode e : postcodes) {
 				if (p != e) {
@@ -64,6 +62,7 @@ public class Answer15 {
 				}
 				
 			}
+			// If the current postcode has more neighbouring postcodes than the previous, declare it as the most densely populated
 			if (postcodesCount > highestPostcodesCount) {
 				highestPostcodesCount = postcodesCount;
 				finalPostcode = p;
@@ -71,8 +70,7 @@ public class Answer15 {
 			postcodesCount = 0;
 		}
 		
-		System.out.println("The most densely populated FY postcode is " + finalPostcode.getCode() + " with " + highestPostcodesCount + " inhabitants");
-		postcodesOnMap.add(finalPostcode);
-		MapGui.showMap(postcodesOnMap);
+		System.out.println("The most densely populated FY postcode is " + finalPostcode.getCode() + " with " + highestPostcodesCount + " inhabitants");		
+		//MapGui.showMap(finalPostcode);
 	}
 }

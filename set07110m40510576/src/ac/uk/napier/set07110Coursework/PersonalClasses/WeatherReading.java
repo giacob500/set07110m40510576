@@ -36,6 +36,7 @@ public class WeatherReading {
 
 	/**
 	 * Gets the year.
+	 * 
 	 * @return the year
 	 */
 	public int getYear() {
@@ -44,6 +45,7 @@ public class WeatherReading {
 
 	/**
 	 * Gets the month.
+	 * 
 	 * @return the month
 	 */
 	public int getMonth() {
@@ -52,6 +54,7 @@ public class WeatherReading {
 	
 	/**
 	 * Gets the date.
+	 * 
 	 * @return the date
 	 */
 	public int getDate() {
@@ -60,6 +63,7 @@ public class WeatherReading {
 	
 	/**
 	 * Gets the wind speed.
+	 * 
 	 * @return the windSpeed
 	 */
 	public int getWindSpeed() {
@@ -68,6 +72,7 @@ public class WeatherReading {
 
 	/**
 	 * Gets the temperature.
+	 * 
 	 * @return the temperature
 	 */
 	public double getTemperature() {

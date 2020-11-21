@@ -33,6 +33,7 @@ public class Answer14 {
 		Postcode finalPostcode = null;		
 		ArrayList<Postcode> postcodes = new ArrayList<>();
 		
+		// Read the fy.csv file and split each line in a array, for each create a postcode object and add it to the list
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(new File("data/fy.csv")));
 			String line;
@@ -50,8 +51,9 @@ public class Answer14 {
 			e.printStackTrace();
 		}		
 		
+		// For each couple of postcodes check which ones are the closest 
 		for (Postcode j : postcodes) {
-			closestDistance = 1000000;
+			closestDistance = Double.MAX_VALUE;
 			for (Postcode n : postcodes) {
 				if (j != n) {
 					if (WeatherData.getDistanceBetweenPoints(j.getLat(), j.getLon(), n.getLat(), n.getLon()) < closestDistance) {
@@ -59,6 +61,7 @@ public class Answer14 {
 					}
 				}
 			}
+			// If the distance just found is higher than the previous distance between the two postcodes, then one of this is more isolated
 			if (closestDistance > farthestDistance) {
 				farthestDistance = closestDistance;
 				finalPostcode = j;
@@ -66,6 +69,6 @@ public class Answer14 {
 		}
 		
 		System.out.println("The most isolated FY postcode is " + finalPostcode.getCode() + " with a distance from the closest of " + farthestDistance);
-		MapGui.showMap(finalPostcode);
+		//MapGui.showMap(finalPostcode);
 	}
 }

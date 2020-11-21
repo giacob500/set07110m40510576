@@ -23,7 +23,7 @@ public class Answer13 {
 		/*
 		 * Add your code below
 		 */
-		
+
 		double lossSum = 0;
 		int lossCount = 0;
 		double edGoSum = 0;
@@ -32,18 +32,19 @@ public class Answer13 {
 		WeatherStation loss = null;
 		ArrayList<Coordinate> coordinates = new ArrayList<>();
 
+		// Get the data and split them in arrays
 		String[] weatherData = WeatherData.getData();
 		for (int i = 1; i < weatherData.length; i++) {
 			String[] data = weatherData[i].split(",");
-			if (Integer.parseInt(data[5]) == 3) {
-				if (data[1].equals("EDINBURGH/GOGARBANK (3166)") && edGo == null) {
-					edGo = new WeatherStation(Double.parseDouble(data[2]), Double.parseDouble(data[3]));
-				} else if (data[1].equals("LOSSIEMOUTH (3068)") && loss == null) {
-					loss = new WeatherStation(Double.parseDouble(data[2]), Double.parseDouble(data[3]));
-				}
+			// When the correct data are found and if the object hasn't been created yet, create it
+			if (data[1].equals("EDINBURGH/GOGARBANK (3166)") && edGo == null) {
+				edGo = new WeatherStation(Double.parseDouble(data[2]), Double.parseDouble(data[3]));
+			} else if (data[1].equals("LOSSIEMOUTH (3068)") && loss == null) {
+				loss = new WeatherStation(Double.parseDouble(data[2]), Double.parseDouble(data[3]));
 			}
 		}
-		
+
+		// Get the temperature from the respective weather readings
 		for (double d : edGo.getWeatherReadingsTemperatureInMarch()) {
 			edGoSum += d;
 		}
@@ -52,12 +53,13 @@ public class Answer13 {
 			lossSum += p;
 		}
 		lossCount = loss.getWeatherReadingsTemperatureInMarch().size();
-		
+
+		// Add the weather stations to the list to be tracked on map
 		coordinates.add(edGo);
 		coordinates.add(loss);
 		System.out.println(
 				"The difference in mean temperature during March between LOSSIEMOUTH (3068) and EDINBURGH/GOGARBANK (3166) is "
 						+ Math.abs((lossSum / lossCount) - (edGoSum / edGoCount)));
-		MapGui.showMap(coordinates);
-	}	
+		//MapGui.showMap(coordinates);
+	}
 }
