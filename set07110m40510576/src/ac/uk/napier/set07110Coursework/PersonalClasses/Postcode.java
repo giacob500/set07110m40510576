@@ -8,10 +8,18 @@ import java.io.IOException;
 
 import org.openstreetmap.gui.jmapviewer.Coordinate;
 
+/**
+ * @author Giacomo Lorenzi 40510576
+ *
+ */
 public class Postcode extends Coordinate {
 
 	private String code;
 
+	/**
+	 * @param lat the latitude parameter
+	 * @param lon the longitude parameter
+	 */
 	public Postcode(double lat, double lon) {
 		super(lat, lon);
 		try {
@@ -33,11 +41,20 @@ public class Postcode extends Coordinate {
 		}
 	}
 
+	/**
+	 * @param code postcode id
+	 * @param lat latitude
+	 * @param lon longitude
+	 */
 	public Postcode(String code, double lat, double lon) {
 		super(lat, lon);
 		this.code = code;
 	}
 
+	/**
+	 * Returns the postcode id (named as code)
+	 * @return code
+	 */
 	public String getCode() {
 		return code;
 	}

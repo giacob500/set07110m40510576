@@ -6,12 +6,20 @@ import org.openstreetmap.gui.jmapviewer.Coordinate;
 
 import weather.WeatherData;
 
+/**
+ * @author Giacomo Lorenzi 40510576
+ *
+ */
 public class WeatherStation extends Coordinate {
 
 	private int siteId;
 	private String siteName;
 	private ArrayList<WeatherReading> weatherReadings = new ArrayList<>();
 	
+	/**
+	 * @param lat  the latitude parameter
+	 * @param lon  the longitude parameter
+	 */
 	public WeatherStation(double lat, double lon) {
 		super(lat, lon);		
 		String[] weatherData = WeatherData.getData();
@@ -26,18 +34,34 @@ public class WeatherStation extends Coordinate {
 		}
 	}
 
+	/**
+	 * Gets the site id.
+	 * @return the siteId
+	 */
 	public int getSiteId() {
 		return siteId;
 	}
 
+	/**
+	 * Gets the site name.
+	 * @return the SiteName
+	 */
 	public String getSiteName() {
 		return siteName;
 	}
 
+	/**
+	 * Gets all the weather readings.
+	 * @return the weatherReadings
+	 */
 	public ArrayList<WeatherReading> getWeatherReadings() {
 		return weatherReadings;
 	}
 	
+	/**
+	 * Gets all the wind speeds observed from the weather readings.
+	 * @return the windSpeed
+	 */
 	public  ArrayList<Integer> getWeatherReadingsWindSpeed(){
 		ArrayList<Integer> windSpeed = new ArrayList<>();
 		for (WeatherReading i : weatherReadings) {
@@ -46,6 +70,10 @@ public class WeatherStation extends Coordinate {
 		return windSpeed;
 	}
 	
+	/**
+	 * Gets all the temperatures observed from the weather readings in march.
+	 * @return the windSpeed
+	 */
 	public  ArrayList<Double> getWeatherReadingsTemperatureInMarch(){
 		ArrayList<Double> temperature = new ArrayList<>();
 		for (WeatherReading i : weatherReadings) {
