@@ -31,7 +31,7 @@ public class Answer11 {
 
 		int count = 0;
 		WeatherStation weatherStation = null;
-		Postcode postcode;
+		Postcode postcode = null;
 		ArrayList<Coordinate> coordinates = new ArrayList<>();
 
 		String[] weatherData = WeatherData.getData();
@@ -48,11 +48,9 @@ public class Answer11 {
 			String line;
 			while ((line = reader.readLine()) != null) {
 				String[] data = line.split(",");
-				// System.out.println("There are BIOBOIA Post Codes");
 				if (WeatherData.getDistanceBetweenPoints(weatherStation.getLat(), weatherStation.getLon(),
 						Double.parseDouble(data[1]), Double.parseDouble(data[2])) <= 5) {
 					count++;
-					// System.out.println("DIOCAN");
 					postcode = new Postcode(Double.parseDouble(data[1]), Double.parseDouble(data[2]));
 					coordinates.add(postcode);
 				}

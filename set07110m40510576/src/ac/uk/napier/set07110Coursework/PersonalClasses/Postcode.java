@@ -15,7 +15,7 @@ public class Postcode extends Coordinate {
 	public Postcode(double lat, double lon) {
 		super(lat, lon);
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(new File("data/fy.csv")));
+			BufferedReader reader = new BufferedReader(new FileReader(new File("data/postcodes.csv")));
 			String line;
 			while ((line = reader.readLine()) != null) {
 				String[] data = line.split(",");
