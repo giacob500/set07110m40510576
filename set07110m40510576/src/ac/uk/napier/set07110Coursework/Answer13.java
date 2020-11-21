@@ -59,7 +59,7 @@ public class Answer13 {
 		coordinates.add(loss);
 		System.out.println(
 				"The difference in mean temperature during March between LOSSIEMOUTH (3068) and EDINBURGH/GOGARBANK (3166) is "
-						+ Math.abs((lossSum / lossCount) - (edGoSum / edGoCount)));
+						+ Math.abs((lossSum / lossCount) - (edGoSum / edGoCount)) + "°C.");
 		MapGui.showMap(coordinates);
 	}
 }

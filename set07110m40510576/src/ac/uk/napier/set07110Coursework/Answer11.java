@@ -67,7 +67,7 @@ public class Answer11 {
 			e.printStackTrace();
 		}
 
-		System.out.println("There are " + coordinates.size() + " Post Codes");
+		System.out.println("There are " + coordinates.size() + " Post Codes.");
 
 		// Use the method ShowMap which takes the list of coordinates as a parameter and
 		// shows them on a map

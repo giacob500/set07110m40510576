@@ -68,7 +68,7 @@ public class Answer14 {
 			}
 		}
 		
-		System.out.println("The most isolated FY postcode is " + finalPostcode.getCode() + " with a distance from the closest of " + farthestDistance);
+		System.out.println("The most isolated FY postcode is " + finalPostcode.getCode() + ", latitude: " + finalPostcode.getLat() + " longitude: " + finalPostcode.getLon() + "\nwith a distance from the closest of " + farthestDistance + ".");
 		MapGui.showMap(finalPostcode);
 	}
 }

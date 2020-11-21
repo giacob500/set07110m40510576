@@ -1,11 +1,4 @@
 package ac.uk.napier.set07110Coursework.PersonalClasses;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
 import org.openstreetmap.gui.jmapviewer.Coordinate;
 
 /**
@@ -17,9 +10,11 @@ public class Postcode extends Coordinate {
 	private String code;
 
 	/**
-	 * @param code postcode id
-	 * @param lat latitude
-	 * @param lon longitude
+	 * Parameterised constructor
+	 * 
+	 * @param code  postcode id
+	 * @param lat  latitude
+	 * @param lon  longitude
 	 */
 	public Postcode(String code, double lat, double lon) {
 		super(lat, lon);
@@ -29,7 +24,7 @@ public class Postcode extends Coordinate {
 	/**
 	 * Returns the postcode id (named as code)
 	 * 
-	 * @return code
+	 * @return code the postcode id
 	 */
 	public String getCode() {
 		return code;

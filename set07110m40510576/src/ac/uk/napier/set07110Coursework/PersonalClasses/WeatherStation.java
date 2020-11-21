@@ -17,6 +17,8 @@ public class WeatherStation extends Coordinate {
 	private ArrayList<WeatherReading> weatherReadings = new ArrayList<>();
 	
 	/**
+	 * Parameterised constructor
+	 * 
 	 * @param lat  the latitude parameter
 	 * @param lon  the longitude parameter
 	 */
@@ -37,7 +39,7 @@ public class WeatherStation extends Coordinate {
 	/**
 	 * Gets the site id.
 	 * 
-	 * @return the siteId
+	 * @return siteId the site id
 	 */
 	public int getSiteId() {
 		return siteId;
@@ -46,7 +48,7 @@ public class WeatherStation extends Coordinate {
 	/**
 	 * Gets the site name.
 	 * 
-	 * @return the SiteName
+	 * @return SiteName the site name
 	 */
 	public String getSiteName() {
 		return siteName;
@@ -55,7 +57,7 @@ public class WeatherStation extends Coordinate {
 	/**
 	 * Gets all the weather readings.
 	 * 
-	 * @return the weatherReadings
+	 * @return weatherReadings the weather readings
 	 */
 	public ArrayList<WeatherReading> getWeatherReadings() {
 		return weatherReadings;
@@ -64,7 +66,7 @@ public class WeatherStation extends Coordinate {
 	/**
 	 * Gets all the wind speeds observed from the weather readings.
 	 * 
-	 * @return the windSpeed
+	 * @return windSpeed the wind speed
 	 */
 	public  ArrayList<Integer> getWeatherReadingsWindSpeed(){
 		ArrayList<Integer> windSpeed = new ArrayList<>();
@@ -77,7 +79,7 @@ public class WeatherStation extends Coordinate {
 	/**
 	 * Gets all the temperatures observed from the weather readings in march.
 	 * 
-	 * @return the windSpeed
+	 * @return windSpeed wind speed
 	 */
 	public  ArrayList<Double> getWeatherReadingsTemperatureInMarch(){
 		ArrayList<Double> temperature = new ArrayList<>();
@@ -94,6 +96,4 @@ public class WeatherStation extends Coordinate {
 		return "WeatherStation [siteId=" + siteId + ", siteName=" + siteName + ", latitude=" + getLat() + ", longitude="
 				+ getLon() + ", weatherReadings=" + weatherReadings.size() + "]";
 	}
-	
-	
 }

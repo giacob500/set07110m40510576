@@ -48,7 +48,7 @@ public class Answer12 {
 		// For each wind speed reading of each weather station
 		for (WeatherStation wr : weatherStations) {
 			for (int reading : wr.getWeatherReadingsWindSpeed()) {
-				// Count how many consecutive wind speed reading greater than 50 does the
+				// Count how many consecutive wind speed reading greater than 50 km/h does the
 				// weather station have
 				if (reading > 50 && consecutiveRead == false) {
 					count++;
@@ -69,7 +69,7 @@ public class Answer12 {
 		}
 
 		System.out.println(finalWeatherStation.getSiteName() + " susteined a wind speed of greater than 50 Km/h for "
-				+ oldCount + " consecutive readings");
+				+ oldCount + " consecutive readings.");
 		MapGui.showMap(finalWeatherStation);
 	}
 }

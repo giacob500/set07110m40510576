@@ -18,6 +18,8 @@ public class WeatherReading {
 	private double temperature;
 
 	/**
+	 * Parameterised constructor
+	 * 
 	 * @param year  the year parameter
 	 * @param month  the month parameter
 	 * @param date  the date parameter
@@ -37,7 +39,7 @@ public class WeatherReading {
 	/**
 	 * Gets the year.
 	 * 
-	 * @return the year
+	 * @return year the year
 	 */
 	public int getYear() {
 		return year;
@@ -46,7 +48,7 @@ public class WeatherReading {
 	/**
 	 * Gets the month.
 	 * 
-	 * @return the month
+	 * @return month the month
 	 */
 	public int getMonth() {
 		return month;
@@ -55,7 +57,7 @@ public class WeatherReading {
 	/**
 	 * Gets the date.
 	 * 
-	 * @return the date
+	 * @return date the date
 	 */
 	public int getDate() {
 		return date;
@@ -64,7 +66,7 @@ public class WeatherReading {
 	/**
 	 * Gets the wind speed.
 	 * 
-	 * @return the windSpeed
+	 * @return windSpeed wind the speed 
 	 */
 	public int getWindSpeed() {
 		return windSpeed;
@@ -73,7 +75,7 @@ public class WeatherReading {
 	/**
 	 * Gets the temperature.
 	 * 
-	 * @return the temperature
+	 * @return temperature the temperature
 	 */
 	public double getTemperature() {
 		return temperature;
