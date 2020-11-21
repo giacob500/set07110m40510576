@@ -70,6 +70,6 @@ public class Answer12 {
 
 		System.out.println(finalWeatherStation.getSiteName() + " susteined a wind speed of greater than 50 Km/h for "
 				+ oldCount + " consecutive readings");
-		//MapGui.showMap(finalWeatherStation);
+		MapGui.showMap(finalWeatherStation);
 	}
 }

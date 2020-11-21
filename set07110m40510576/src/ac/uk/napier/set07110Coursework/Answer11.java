@@ -54,7 +54,7 @@ public class Answer11 {
 				// radius, create the new postcode object, add it into the coordinates list
 				if (WeatherData.getDistanceBetweenPoints(weatherStation.getLat(), weatherStation.getLon(),
 						Double.parseDouble(data[1]), Double.parseDouble(data[2])) <= 5) {
-					postcode = new Postcode(Double.parseDouble(data[1]), Double.parseDouble(data[2]));
+					postcode = new Postcode(data[0], Double.parseDouble(data[1]), Double.parseDouble(data[2]));
 					coordinates.add(postcode);
 				}
 			}
@@ -71,6 +71,6 @@ public class Answer11 {
 
 		// Use the method ShowMap which takes the list of coordinates as a parameter and
 		// shows them on a map
-		//MapGui.showMap(coordinates);
+		MapGui.showMap(coordinates);
 	}
 }

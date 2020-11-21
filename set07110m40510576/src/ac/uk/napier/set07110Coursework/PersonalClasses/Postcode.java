@@ -17,31 +17,6 @@ public class Postcode extends Coordinate {
 	private String code;
 
 	/**
-	 * @param lat the latitude parameter
-	 * @param lon the longitude parameter
-	 */
-	public Postcode(double lat, double lon) {
-		super(lat, lon);
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader(new File("data/postcodes.csv")));
-			String line;
-			while ((line = reader.readLine()) != null) {
-				String[] data = line.split(",");
-				if (Double.parseDouble(data[1]) == lat && Double.parseDouble(data[2]) == lon) {
-					code = data[0];
-				}
-			}
-			reader.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
 	 * @param code postcode id
 	 * @param lat latitude
 	 * @param lon longitude

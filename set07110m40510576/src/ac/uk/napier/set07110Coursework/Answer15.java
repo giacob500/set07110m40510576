@@ -71,6 +71,6 @@ public class Answer15 {
 		}
 		
 		System.out.println("The most densely populated FY postcode is " + finalPostcode.getCode() + " with " + highestPostcodesCount + " inhabitants");		
-		//MapGui.showMap(finalPostcode);
+		MapGui.showMap(finalPostcode);
 	}
 }
