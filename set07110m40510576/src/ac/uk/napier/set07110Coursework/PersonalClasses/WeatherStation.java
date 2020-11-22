@@ -90,7 +90,12 @@ public class WeatherStation extends Coordinate {
 		}
 		return temperature;
 	}
-
+	
+	/**
+	 * Returns the properties of the WeatherStation
+	 *
+	 * @return a string representation of the WeatherStation
+	 */
 	@Override
 	public String toString() {
 		return "WeatherStation [siteId=" + siteId + ", siteName=" + siteName + ", latitude=" + getLat() + ", longitude="

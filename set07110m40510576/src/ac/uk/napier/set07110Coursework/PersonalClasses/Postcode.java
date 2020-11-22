@@ -30,6 +30,11 @@ public class Postcode extends Coordinate {
 		return code;
 	}
 
+	/**
+	 * Returns the properties of the Postcode
+	 *
+	 * @return a string representation of the Postcode
+	 */
 	@Override
 	public String toString() {
 		return "Postcode [code=" + code + " latitude=" +  getLat() + " longitude=" +  getLon() + "]";

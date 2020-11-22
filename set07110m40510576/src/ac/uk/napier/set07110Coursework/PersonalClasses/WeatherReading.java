@@ -81,6 +81,11 @@ public class WeatherReading {
 		return temperature;
 	}
 
+	/**
+	 * Returns the properties of the WeatherReading
+	 *
+	 * @return a string representation of the WeatherReading
+	 */
 	@Override
 	public String toString() {
 		return "WeatherReading [year=" + year + ", month=" + month + ", date=" + date + ", hour=" + hour
